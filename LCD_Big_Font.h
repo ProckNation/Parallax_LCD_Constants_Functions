@@ -95,7 +95,7 @@ byte cc7[8] = {     // Custom Character 7
 };
 
 // Function to send custom characters to the display's RAM
-void DefineCustomChar(){
+void LCD_DefineCustomChar(){
   LCD_createChar(0,cc0);  // cc0 becomes character 0
   LCD_createChar(1,cc1);  // cc1 becomes character 1
   LCD_createChar(2,cc2);  // cc2 becomes character 2
@@ -122,7 +122,7 @@ char bn3[]={4,3,B, 3,B,3, B,3,3, 4,3,B, A,A,B, 4,3,B, 4,3,B, A,B,A, 4,3,B, A,A,B
 // Functions for printing two large digits. Value is the column number
 // and number is the number to print. Works from 00-99
 
-void printTwoNumber(byte value, byte number){
+void LCD_printTwoNumber(byte value, byte number){
 
   LCD_setCursor(value,1);  // Printing line 1 of the two-digit number
   Serial2.write(bn1[(number/10)*3]);

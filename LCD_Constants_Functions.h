@@ -46,12 +46,12 @@ const int LCD_DCC5 = 253;
 const int LCD_DCC6 = 254;
 const int LCD_DCC7 = 255;
 
-int lcdGotoXY (int col, int row)
+int LCD_GotoXY (int col, int row)
 {
   return (128 + (row * 20) + col);
 }
 
-void lcdCLS(int portNum)
+void LCD_CLS(int portNum)
 {
   switch (portNum) {
     case 0:
