@@ -1,7 +1,8 @@
+//03-31-2015 13:38:00
 /**************************************************
-|				LCD_Constants_Functions.h 
-|
-|			Created by Jason Procknow
+|	LCD_Constants_Functions.h 
+|	For use with the Parallax serial LCD PN: 27979
+|	Created by Jason Procknow
 |	
 |	These ASCII addresses are from the LCD's 
 |	datasheet.  The address constants help control
@@ -13,8 +14,8 @@
 |	Parallax Part Number: 27979
 |	
 |	Last updated on 02-15-2015
-|		- took out all the extra spaces added when 
-|		converting from .txt file to .h file
+|	- took out all the extra spaces added when 
+|	converting from .txt file to .h file
 |
 \-------------------------------------------------*/
 
@@ -46,9 +47,27 @@ const int LCD_DCC5 = 253;
 const int LCD_DCC6 = 254;
 const int LCD_DCC7 = 255;
 
-int LCD_GotoXY (int col, int row)
+int GotoXY (int col, int row)
 {
   return (128 + (row * 20) + col);
+}
+
+void LCD_GotoXY (int serialPort, int col, int row)
+{
+switch (serialPort) {
+    case 0:
+	  Serial.write(128 + (row * 20) + col);
+	  break;
+	case 1:
+	  Serial1.write(128 + (row * 20) + col);
+	  break;
+	case 2:
+	  Serial2.write(128 + (row * 20) + col);
+	  break;
+	case 3:
+	  Serial3.write(128 + (row * 20) + col);
+	  break;
+  }
 }
 
 void LCD_CLS(int portNum)
@@ -67,7 +86,7 @@ void LCD_CLS(int portNum)
 	  Serial3.write(12);
 	  break;
   }
-  delay(50);
+  delay(5);
 }
 
   
