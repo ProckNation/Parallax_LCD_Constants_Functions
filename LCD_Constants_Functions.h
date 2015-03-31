@@ -1,5 +1,5 @@
 /**************************************************
-|				LCD_Constants.h 
+|				LCD_Constants_Functions.h 
 |
 |			Created by Jason Procknow
 |	
